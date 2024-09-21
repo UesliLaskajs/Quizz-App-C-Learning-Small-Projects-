@@ -12,3 +12,4 @@ C:\Users\User\source\repos\QuizApp\QuizApp\obj\Debug\net8.0\refint\QuizApp.dll
 C:\Users\User\source\repos\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.pdb
 C:\Users\User\source\repos\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.genruntimeconfig.cache
 C:\Users\User\source\repos\QuizApp\QuizApp\obj\Debug\net8.0\ref\QuizApp.dll
+C:\Users\User\source\repos\QuizApp\QuizApp\obj\Debug\net8.0\QuizApp.sourcelink.json

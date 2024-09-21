@@ -8,13 +8,13 @@ namespace QuizApp
 {
     internal class Questions
     {
-        public string Question { get; set; }
-        public string[] Answers { get; set; }
+        public string Question { get; set; }//Get Question
+        public string[] Answers { get; set; }//Get Answer Array
 
-        public int CorrectAnswers { get; set; }
+        public int CorrectAnswers { get; set; }//Index of COrrect Answer
 
 
-        public  Questions(string questions, string[] answers,int correctAnswers)
+        public  Questions(string questions, string[] answers,int correctAnswers)//Called a constructor with its parameters
         {
             Question = questions;
             Answers = answers;

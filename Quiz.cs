@@ -9,16 +9,39 @@ namespace QuizApp
     internal class Quiz
     {
 
-        private Questions[] questions;
-
-        public Quiz(Questions[] questions)
+        private Questions[] questions;//Member Type 
+        private int score;
+        public Quiz(Questions[] questions)//Constructor to pass in the Data from Questions Class
         {
             this.questions = questions;
+            int score = 0;
         }
 
-        public void DisplaySetting(Questions question)
+        public void StartQuiz()
+
         {
-            Console.WriteLine(question.Question);
+
+            int questionIndex = 0;
+            foreach (Questions questions in questions)
+            {
+                Console.WriteLine($"This is The question Number: {questionIndex++}");
+                DisplaySetting(questions);
+                int userChoice = GetUserChoice();
+                if (questions.correctChoice(userChoice)){
+                    score++;
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine($"Wrong! The Right Answer is {questions.Answers[questions.CorrectAnswers]}");
+                }
+                
+            }
+        }
+
+        public void DisplaySetting(Questions question)//Method that pass in the Class Question Buil and data comes from main 
+        {
+            Console.WriteLine(question.Question);//Get Parameter Question
 
             for (int i = 0; i < question.Answers.Length; i++)
             {
@@ -30,25 +53,22 @@ namespace QuizApp
 
             // Store user's choice
 
-            if (GetUserChoice() == question.CorrectAnswers)
-            {
-                Console.WriteLine("Correct");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect");
-            }
+            double percentage = (double)score / questions.Length;
+
+            Console.WriteLine($"Congratulations!You got {percentage}");
+
+
         }
 
 
 
 
-        public int GetUserChoice() {
+        public int GetUserChoice() {//Method to get The User Choice Used On Line 33
             Console.WriteLine("Input Your Answer");
             string input = Console.ReadLine();
             int choice = 0;
 
-            while(!int.TryParse(input, out choice)||choice <1 || choice > 4)
+            while(!int.TryParse(input, out choice)||choice <1 || choice > 4)//While input is diffrent from integer or is less than 1 or higher than 4 answer is Invalid input another
             {
                 Console.WriteLine("Your Answer Is Invalid ");
                 input=Console.ReadLine();
